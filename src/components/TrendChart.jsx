@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 const TrendChart = ({ data }) => {
     const { theme } = useTheme();
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const formattedData = data.map(d => ({
+    const formattedData = (Array.isArray(data) ? data : []).map(d => ({
         ...d,
         name: monthNames[d.month - 1]
     }));

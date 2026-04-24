@@ -2,24 +2,25 @@ import React from 'react';
 import { Users, AlertTriangle, Activity, Database } from 'lucide-react';
 
 const KPIGrid = ({ data }) => {
+    const stats = data || {};
     const kpis = [
         {
             title: 'Total Users',
-            value: data.total_users || 0,
+            value: stats.total_users || 0,
             icon: Users,
             color: 'text-blue-500',
             bg: 'bg-blue-500/10'
         },
         {
             title: 'High Risk',
-            value: data.high_risk_count || 0,
+            value: stats.high_risk_count || 0,
             icon: AlertTriangle,
             color: 'text-red-500',
             bg: 'bg-red-500/10'
         },
         {
             title: 'Avg Churn Score',
-            value: `${((data.avg_churn_score || 0) * 100).toFixed(1)}%`,
+            value: `${((stats.avg_churn_score || 0) * 100).toFixed(1)}%`,
             icon: Activity,
             color: 'text-accent',
             bg: 'bg-accent/10'

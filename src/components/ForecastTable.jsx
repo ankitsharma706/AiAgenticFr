@@ -2,7 +2,7 @@ import React from 'react';
 import { TrendingUp, AlertTriangle, ShieldCheck, DollarSign, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
 
 const ForecastTable = ({ data, pagination, filters, onFilterChange, onPageChange }) => {
-    const list = data || [];
+    const list = Array.isArray(data) ? data : [];
 
     return (
         <div className="glass-card overflow-hidden transition-colors shadow-2xl">

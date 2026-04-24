@@ -25,7 +25,7 @@ const HeatmapTable = ({ data }) => {
     };
 
     const getValue = (risk, month) => {
-        const item = data.find(d => d.risk === risk && d.month === month);
+        const item = (Array.isArray(data) ? data : []).find(d => d.risk === risk && d.month === month);
         return item ? item.value : 0;
     };
 

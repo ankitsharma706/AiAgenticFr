@@ -45,8 +45,8 @@ const ScatterPlot = ({ data }) => {
                         }}
                         itemStyle={{ color: 'var(--text)' }}
                     />
-                    <Scatter name="Users" data={data}>
-                        {data.map((entry, index) => (
+                    <Scatter name="Users" data={Array.isArray(data) ? data : []}>
+                        {(Array.isArray(data) ? data : []).map((entry, index) => (
                             <Cell 
                                 key={`cell-${index}`} 
                                 fill={entry.risk === 'High' ? '#ef4444' : entry.risk === 'Medium' ? '#f59e0b' : '#10b981'} 

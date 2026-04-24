@@ -10,7 +10,7 @@ const RiskDonut = ({ data }) => {
         'Low': '#10b981'
     };
 
-    const formattedData = data.map(d => ({
+    const formattedData = (Array.isArray(data) ? data : []).map(d => ({
         name: d._id,
         value: d.count
     }));

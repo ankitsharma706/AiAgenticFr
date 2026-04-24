@@ -6,10 +6,11 @@ const StackedAreaChart = ({ data }) => {
     const { theme } = useTheme();
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
-    const months = [...new Set(data.map(d => d.month))].sort((a,b) => a-b);
+    const safeData = Array.isArray(data) ? data : [];
+    const months = [...new Set(safeData.map(d => d.month))].sort((a,b) => a-b);
     const chartData = months.map(m => {
         const point = { name: monthNames[m-1] };
-        data.filter(d => d.month === m).forEach(d => {
+        safeData.filter(d => d.month === m).forEach(d => {
             point[d.risk] = d.value;
         });
         return point;

@@ -21,7 +21,7 @@ const TopUsersTable = ({ data }) => {
                          </tr>
                      </thead>
                      <tbody className="divide-y divide-border-main/50">
-                          {data.map((user) => (
+                          {(Array.isArray(data) ? data : []).map((user) => (
                               <tr key={user._id} className="hover:bg-bg-primary/50 transition-colors group">
                                   <td className="px-6 py-4 whitespace-nowrap">
                                       <div className="flex flex-col">
